@@ -1,0 +1,34 @@
+
+
+<app-navbar></app-navbar>
+
+
+
+<div class="container">
+    <nav>
+        <div class="nav nav-tabs" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#locations" role="tab" aria-controls="nav-home" aria-selected="true">Add Location</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#candidate" role="tab" aria-controls="nav-profile" aria-selected="false">Add Candidate</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#user" role="tab" aria-controls="nav-contact" aria-selected="false">Add User</a>
+          <a class="nav-item nav-link" id="nav-result-tab" data-toggle="tab" href="#results" role="tab" aria-controls="nav-contact" aria-selected="false">Results</a>
+
+        </div>
+      </nav>
+<div class="tab-content">
+    <div id="locations" class="tab-pane fade show active">
+        <app-location-tab></app-location-tab>
+    </div>
+    <div id="candidate" class="tab-pane fade">
+        <app-candidate-tab></app-candidate-tab>
+    </div>
+    <div id="user" class="tab-pane fade">
+        <app-user-tab></app-user-tab>
+    </div>
+    <div id="results" class="tab-pane fade">
+        <app-results-tab></app-results-tab>
+    </div>
+</div>
+</div>
+
+
+

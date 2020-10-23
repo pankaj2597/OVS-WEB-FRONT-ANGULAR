@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="card" v-if="userData.location.candidates.length > 0;else empty">
+    <div class="card-body">
+      <h4 class="card-title">Aadhar Number is: {{userData.aadharId}}</h4>
+      <p class="card-text">Voter Name : <strong>{{userData.name}}</strong></p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Candidate Name</th>
+            <th class="text-center">Party Logo</th>
+            <th class="text-center">Party Name</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let candidate of userData.location.candidates">
+            <td class="text-center">{{candidate.candidateName}}</td>
+            <td class="text-center"><img [src]="candidate.partyLogo" class="w-auto" style="height: 80px;"></td>
+            <td class="text-center">{{candidate.partyName}}</td>
+            <td class="text-center">
+              <button type="button" (click)="onClickVote($event)" class="block-btn w-50" id={{candidate._id}}>Vote</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #empty>
+    <div class="text-center">
+    <img src="../../assets/no-record-found.png" width="200" height="200">
+    <h4>No Candidates Found for this location</h4>
+</div>
+</ng-template>

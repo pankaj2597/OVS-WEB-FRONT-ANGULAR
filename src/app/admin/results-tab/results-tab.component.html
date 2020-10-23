@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+    <thead>
+      <tr class="table-success">
+        <th>Candidate Name</th>
+        <th>Location</th>
+        <th>Party Name</th>
+        <th class="text-center">No. Of. Votes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of results">
+        <td class="text-center">{{candidate.candidateName}}</td>
+        <!-- <td class="text-center"><img [src]="candidate.partyLogo" class="w-auto" style="height: 80px;"></td> -->
+        <td class="text-center">{{candidate.location.locationName}}</td>
+<td class="text-center">{{candidate.partyName}}</td>
+        <td class="text-center">{{candidate.voteCount}}</td>
+      </tr>
+    </tbody>
+  </table>

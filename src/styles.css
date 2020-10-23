@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body{
+    background: linear-gradient(to right,#EB3349,#F45C43)!important;
+}
+
+.block-btn{
+    width: 100%;
+    padding: 0.6rem 0.4rem;
+    background: linear-gradient(to right,#FF512F,#DD2476);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+}
+.block-btn:active,
+.block-btn:focus{
+    border: none;
+    outline: none;
+    color: #fff;
+}
+.block-btn:hover{
+    background:linear-gradient(to right,#DD2476,#FF512F);
+}
+.form-input{
+    padding: 0.6rem 0.8rem;
+    width: 100%;
+    border:2px solid #DD2476;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+.form-input:focus{
+    border: 2px solid #DD2476;
+}
+.form-input::placeholder{
+    color: #DD2476;
+}
+.invalid-form{
+    border:2px solid red;
+}
+.text-danger{
+    color: red;
+    font-weight: 500;
+    font-size: 16px;
+}
+.locationId{
+    top: 32%;
+    left: 4%;
+    
+}
+input[name="locationId"],
+input[name="candidateId"]{
+    text-indent: 40px;
+}
+.spinner-border-sm{
+    width: 1.2rem!important;
+    height: 1.2rem!important;
+}
+.btn-outline-primary{
+    border-radius: 20px!important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success{
+    background: #27ae60;
+    width: 70%;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.danger{
+    background: #e74c3c;
+    width: 70%;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

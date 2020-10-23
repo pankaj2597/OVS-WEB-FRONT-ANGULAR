@@ -1,0 +1,27 @@
+<form #locationForm="ngForm" (submit)="addLocation()">
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 text-center">
+        <div class="form-group position-relative">
+            <span class="position-absolute locationId"><strong>TNE</strong></span>
+            <input type="text" placeholder="Location Id" class="form-input" 
+            [class.invalid-form]="(locationId.invalid && locationId.touched) || (locationForm.submitted && locationId.invalid && locationId.touched)" 
+            ngModel name="locationId" #locationId="ngModel" required>
+            <span class="text-danger float-left" *ngIf="(locationId.invalid && locationId.touched) || (locationForm.submitted && locationId.invalid)">Enter Location id</span>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 text-center">
+        <div class="form-group">
+            <input type="text" placeholder="Location Name" class="form-input" ngModel name="locationName" #locationName="ngModel" 
+            [class.invalid-form]="(locationName.invalid && locationName.touched) || (locationForm.submitted && locationName.invalid && locationName.touched)" required>
+            <span class="text-danger float-left" *ngIf="(locationName.invalid && locationName.touched) || (locationForm.submitted && locationName.invalid)">Enter Location Name</span>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+        <div class="form-group" style="margin-top: 2rem;">
+            <button type="submit" class="block-btn w-25">Add Location
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" [class.d-none]="isSpinner"></span>
+            </button>
+        </div>
+    </div>
+</div>
+</form>

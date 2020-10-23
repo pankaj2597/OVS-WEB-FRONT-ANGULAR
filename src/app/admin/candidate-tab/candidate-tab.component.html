@@ -1,0 +1,69 @@
+<div *ngIf="locationsList.length > 0;else empty">
+    <form (submit)="addCandidate()" #candidateForm="ngForm">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-left">
+                <div class="position-relative">
+                    <div *ngIf="partyLogo;else defaultLogo">
+                    <img [src]="partyLogo" width="100" height="100" [class.d-none]="hideImg">
+                    </div>
+                    <ng-template #defaultLogo>
+                        <img src="../../../assets/default-flag.jpg" width="150" height="100">
+                    </ng-template>
+                    <div class="spinner-border position-absolute" role="status" [class.d-none]="!hideImg">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <input type="file" class="form-input d-none" #fileUpload (change)="selectImage($event)" accept="image/png, image/jpeg">
+                    <button class="btn btn-primary mt-3 px-2 py-1" type="button" (click)="fileUpload.click()" style="width: 15%!important;">Upload Party Logo</button>   
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-sm-12 col-mg-12 col-lg-3 col-xl-3 text-center">
+            <div class="form-group">
+                <select name="locations" class="form-input" ngModel #location="ngModel" required name="location"
+                [class.invalid-form]="(location.invalid && location.touched) || (candidateForm.submitted && location.invalid && location.touched)">
+                <option value="" selected disabled>Choose Location</option>
+                    <option *ngFor="let location of locationsList" value="{{location._id}}">{{location.locationName}}</option>
+                </select>
+                <span class="text-danger float-left" *ngIf="(location.invalid && location.touched) || (candidateForm.submitted && location.invalid)">Location is Mandatory</span>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 text-center">
+            <div class="form-group position-relative">
+                <span class="position-absolute locationId"><strong>MLA</strong></span>
+                <input type="text" placeholder="Candidate Id" class="form-input" 
+                [class.invalid-form]="(candidateId.invalid && candidateId.touched) || (candidateForm.submitted && candidateId.invalid && candidateId.touched)" 
+                ngModel name="candidateId" #candidateId="ngModel" required>
+                <span class="text-danger float-left" *ngIf="(candidateId.invalid && candidateId.touched) || (candidateForm.submitted && candidateId.invalid)">Enter Candidate id</span>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 text-center">
+            <div class="form-group">
+                <input type="text" placeholder="Candidate Name" class="form-input" ngModel name="candidateName" #candidateName="ngModel" 
+                [class.invalid-form]="(candidateName.invalid && candidateName.touched) || (candidateForm.submitted && candidateName.invalid && candidateName.touched)" required>
+                <span class="text-danger float-left" *ngIf="(candidateName.invalid && candidateName.touched) || (candidateForm.submitted && candidateName.invalid)">Enter Candidate Name</span>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 text-center">
+            <div class="form-group">
+                <input type="text" placeholder="Party Name" class="form-input" ngModel name="partyName" #partyName="ngModel" 
+                [class.invalid-form]="(partyName.invalid && partyName.touched) || (candidateForm.submitted && partyName.invalid && partyName.touched)" required>
+                <span class="text-danger float-left" *ngIf="(partyName.invalid && partyName.touched) || (candidateForm.submitted && partyName.invalid)">Enter Party Name</span>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+            <div class="form-group" style="margin-top: 2rem;">
+                <button type="submit" class="block-btn w-25">Add Candidate</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<ng-template #empty>
+    <div class="text-center">
+    <img src="../../../assets/location-mark.png" width="200" height="200">
+    <h4>No Locations Found</h4>
+</div>
+</ng-template>
